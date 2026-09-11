@@ -4,7 +4,7 @@ import StackCard from "./StackCard";
 
 interface StackProps{
     addedStacks: CardType[];
-    setAddedStacks: Dispatch<SetStateAction<CardType[]>>
+    setAddedStacks: Dispatch<SetStateAction<CardType[]>>;
 }
 
 const Stack = ({addedStacks, setAddedStacks}: StackProps) => {
@@ -22,6 +22,10 @@ const Stack = ({addedStacks, setAddedStacks}: StackProps) => {
         )
     }
 
+    const handleRemoveAllStack = () => {
+        setAddedStacks([]);
+    }
+
     return (
         <div className="border-2 border-gray-200 space-y-1 px-6 py-8 rounded-xl -ml-3 mr-5 lg:ml-0 lg:mr-0">
             <h3 className="text-2xl font-semibold">Your Stack</h3>
@@ -29,11 +33,11 @@ const Stack = ({addedStacks, setAddedStacks}: StackProps) => {
 
             {
                 addedStacks.map((stack: CardType, index: number) => {
-                    return <StackCard key={index} stack={stack} addedStacks={addedStacks} setAddedStacks={setAddedStacks}/>
+                    return <StackCard key={index} stack={stack} addedStacks={addedStacks} setAddedStacks={setAddedStacks} />
                 })
             }
 
-            <button className="border-2 border-red-500 rounded-lg py-1 w-full text-center cursor-pointer text-red-500 font-bold">Remove All</button>
+            <button onClick={handleRemoveAllStack} className="border-2 border-red-500 rounded-lg py-1 w-full text-center cursor-pointer text-red-500 font-bold">Remove All</button>
         </div>
     );
 };

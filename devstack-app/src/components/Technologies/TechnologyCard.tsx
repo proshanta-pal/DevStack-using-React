@@ -1,4 +1,4 @@
-import { useState, type Dispatch, type SetStateAction } from "react";
+import type { Dispatch, SetStateAction } from "react";
 import type { CardType } from "../../types/type";
 import { toast } from "react-toastify";
 
@@ -10,10 +10,9 @@ interface TechnologyCardProps{
 
 const TechnologyCard = ({tech, addedStacks, setAddedStacks}: TechnologyCardProps) => {
 
-    const [isAdded, setIsAdded] = useState(false);
+    const isAdded = addedStacks.some(stack => stack.id === tech.id);
 
     const handleAddCard = () => {
-        setIsAdded(true);
         toast.success(`${tech.name} added successfully on stack.`, {
             position: 'bottom-right'
         })
@@ -33,9 +32,8 @@ const TechnologyCard = ({tech, addedStacks, setAddedStacks}: TechnologyCardProps
                 <p className="font-medium">⭐{tech.rating}</p>
             </div>
 
-            <button className={`text-center bg-slate-900 w-full text-white py-3 rounded-lg mt-5 ${isAdded ? 'disabled:cursor-not-allowed disabled:opacity-50' : 'cursor-pointer'}`}
-            disabled={isAdded} onClick={() => handleAddCard()}>
-                {isAdded ? 'Added to Stack' : 'Add to Stack'}
+            <button onClick={() => handleAddCard()} className="btn btn-neutral w-full mt-5 shadow-md trainsition-all hover:scale-105" disabled={isAdded}>
+                {isAdded ? '✓ Added to Stack' : 'Add to Stack'}
             </button>
         </div>
     );

@@ -9,6 +9,12 @@ interface StackCardProps{
 }
 
 const StackCard = ({stack, addedStacks, setAddedStacks}: StackCardProps) => {
+
+    const handleRemoveStack = (stack: CardType) => {
+        const remainingStack = addedStacks.filter(addedStack => addedStack.id !== stack.id);
+        setAddedStacks(remainingStack);
+    }
+
     return (
         <div className="flex items-center justify-between gap-10 my-5 border-2 border-gray-300 rounded-lg py-2 px-4">
             <div className="flex items-center gap-5">
@@ -20,7 +26,7 @@ const StackCard = ({stack, addedStacks, setAddedStacks}: StackCardProps) => {
                 </div>
             </div>
 
-            <div className="font-bold cursor-pointer text-3xl">
+            <div onClick={() => handleRemoveStack(stack)} className="font-bold cursor-pointer text-3xl">
                 <RxCross2 />
             </div>
         </div>

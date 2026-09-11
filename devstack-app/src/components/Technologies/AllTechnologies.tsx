@@ -16,15 +16,13 @@ const AllTechnologies = ({technologiesData}: AllTechnologiesProps) => {
             <div className="lg:w-[75%] grid grid-cols-1 lg:grid-cols-3 gap-8 my-10">
                 {
                     technologiesData.map((tech: CardType, index: number) => {
-                        return (
-                            <TechnologyCard key={index} tech={tech} addedStacks={addedStacks} setAddedStacks={setAddedStacks}/>
-                        )
+                        return <TechnologyCard key={index} tech={tech} addedStacks={addedStacks} setAddedStacks={setAddedStacks} />
                     })
                 }
             </div>
 
             <div className="my-10 ml-8">
-                <Stack addedStacks={addedStacks} setAddedStacks={setAddedStacks}/>
+                <Stack addedStacks={addedStacks} setAddedStacks={setAddedStacks} />
             </div>
         </div>
     );
