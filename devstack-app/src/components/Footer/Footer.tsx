@@ -9,9 +9,9 @@ const Footer = () => {
                     <p className='text-center'>Curated tools, techlogies, and resources for developers building modern software.</p>
                     
                     <div className='flex gap-4 font-medium'>
-                        <span>Github</span>
-                        <span>Twitter</span>
-                        <span>LinkedIn</span>
+                        <span className='cursor-pointer'>Github</span>
+                        <span className='cursor-pointer'>Twitter</span>
+                        <span className='cursor-pointer'>LinkedIn</span>
                     </div>
                 </div>
 

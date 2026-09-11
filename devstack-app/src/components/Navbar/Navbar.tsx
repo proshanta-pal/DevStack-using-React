@@ -3,7 +3,7 @@ import Logo from '../../assets/logo-text.png'
 
 const Navbar = () => {
     return (
-        <div className='flex justify-between max-w-7xl mx-auto px-4 lg:px-0 py-5'>
+        <div className='flex justify-between max-w-7xl mx-auto px-4 lg:px-0 py-5 sticky top-0 bg-white z-10'>
             <GiHamburgerMenu className='block lg:hidden' />
             <img src={Logo} alt="DevStack Logo" />
 
@@ -18,8 +18,8 @@ const Navbar = () => {
             </div>
 
             <div className='flex gap-3'>
-                <button className='cursor-pointer'>Sign In</button>
-                <button className='text-white text-medium bg-[#d91b7e] rounded-3xl px-3 cursor-pointer shadow-md shadow-[#fbcfe8FF]'>Sign Up</button>
+                <button className='cursor-pointer active:scale-95'>Sign In</button>
+                <button className='text-white text-medium bg-[#d91b7e] rounded-3xl px-3 cursor-pointer shadow-md shadow-[#fbcfe8FF] active:scale-95'>Sign Up</button>
             </div>
         </div>
     );
